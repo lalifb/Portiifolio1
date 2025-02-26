@@ -9,8 +9,22 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+
+    <!-- font-awesome -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
+    <div id="cursor"></div>
     <!-- Header Section -->
     <header>
       <div class="logo">
@@ -60,7 +74,7 @@
 
     <!-- Services Section -->
     <section id="services" class="services">
-      <h2 class="section-title">My Services</h2>
+      <h2 class="section-title">My Services!</h2>
       <div class="services-container">
         <div class="service-card">
           <i class="fas fa-code"></i>
@@ -82,9 +96,45 @@
       </div>
     </section>
 
+    <!-- SKILLS SECTION -->
+    <div id="skills">
+      <h1>My main tech stack includes</h1>
+      <div class="tech">
+        <div class="box">
+          <h3>HTML5</h3>
+          <img src="images/html.png" alt="HTML Image" />
+          <p>Structure for modern web content.</p>
+        </div>
+        <div class="box">
+          <h3>CSS3</h3>
+          <img src="images/css.png" alt="CSS Image" />
+          <p>Styling for beautiful web design.</p>
+        </div>
+        <div class="box">
+          <h3>JavaScript</h3>
+          <img src="images/js.png" alt="Js image" />
+          <p>Dynamic behavior and interactivity.</p>
+        </div>
+        <div class="box">
+          <h3>Bootstrap</h3>
+          <img src="images/bootstrap.png" alt="Bootstrap image" />
+          <p>Front-end framework for efficient development</p>
+        </div>
+        <div class="box">
+          <h3>Git And GitHub</h3>
+          <img src="images/gitlogo.png" alt="Git image" />
+          <p>Version control for collaborative development.</p>
+        </div>
+        <div class="box">
+          <h3>Responsive website</h3>
+          <img src="images/responsive.png" alt="Responsive image" />
+          <p>Adaptable layouts for all devices.</p>
+        </div>
+      </div>
+    </div>
     <!-- Skills Section -->
     <section id="skills" class="skills">
-      <h2 class="section-title">My Skills</h2>
+      <h2 class="section-title">General</h2>
       <div class="skills-container">
         <div class="skill-category">
           <h3>Frontend</h3>
@@ -118,7 +168,7 @@
           <div class="skill-item">
             <span>Python</span>
             <div class="progress-bar">
-              <div class="progress" style="width: 80%" data-value="80%"></div>
+              <div class="progress" style="width: 50%" data-value="50%"></div>
             </div>
           </div>
           <div class="skill-item">
@@ -132,8 +182,8 @@
           <h3>Other Skills</h3>
           <div class="skills-cloud">
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Github</span>
+            <span class="skill-tag">VS</span>
             <span class="skill-tag">Machine Learning</span>
             <span class="skill-tag">Data Structures</span>
             <span class="skill-tag">Algorithms</span>
@@ -182,11 +232,29 @@
             </div>
           </div>
         </div>
+        <!--fr-->
+        <div class="project-card">
+          <img src="Screenshot 2025-02-21 223154.png" alt="Project 1" />
+          <div class="project-info">
+            <h3>Food and Resturant</h3>
+            <p>
+              This website offers a seamless user experience crafted using HTML,
+              CSS, and JavaScript. Explore our features and discover a visually
+              appealing and interactive platform
+            </p>
+            <div class="project-links">
+              <a href="#" class="btn">Live Demo</a>
+              <a href=" https://lalifb.github.io/FoodResturant/" class="btn"
+                >View my prooject</a
+              >
+            </div>
+          </div>
+        </div>
         <!--spC-->
         <div class="project-card">
           <img src="shopc.jpg" alt="Project 1" />
           <div class="project-info">
-            <h3>Shopping Cart</h3>
+            <h3>Food Resturant</h3>
             <p>
               Developed a web-based shopping cart application using HTML, CSS,
               JavaScript, and PHP. Implemented product listing, cart management,
@@ -194,7 +262,9 @@
             </p>
             <div class="project-links">
               <a href="#" class="btn">Live Demo</a>
-              <a href="#" class="btn">View my prooject</a>
+              <a href="https://resturant-website.netlify.app" class="btn"
+                >View my prooject</a
+              >
             </div>
           </div>
         </div>
@@ -268,9 +338,18 @@
     <!-- Footer -->
     <footer>
       <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+        <a
+          href="https://www.linkedin.com/in/lalisa-fekadu-b144a6352/"
+          target="_blank"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/accounts/login/?next=%2Fradiance_ofhope%2F&source=omni_redirect"
+          target="_blank"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
       </div>
       <p>&copy; 2024 Lalisa. All rights reserved.</p>
     </footer>

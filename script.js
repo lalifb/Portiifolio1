@@ -1,3 +1,12 @@
+var cursor = document.querySelector("#cursor");
+
+document.addEventListener("mousemove", (dets) => {
+  cursor.style.left = dets.x + "px";
+  cursor.style.top = dets.y + "px";
+  cursorBlur.style.left = dets.x - 125 + "px";
+  cursorBlur.style.top = dets.y - 125 + "px";
+});
+
 // Dark Mode Toggle
 const themeToggle = document.querySelector(".theme-toggle");
 const body = document.body;

@@ -54,11 +54,61 @@ header {
   color: #b74b4b;
   font-weight: 800;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: color 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+  border: 3px solid transparent;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  background-color: #fff; /* Initial background color */
+}
+
+.logo:hover {
+  color: #f06292;
+  transform: scale(1.1);
+  background-color: #f9e2e2; /* New background color on hover */
+}
+
+.logo::before,
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #b74b4b;
+  transition: transform 0.5s ease;
+  box-sizing: border-box;
+}
+
+.logo::before {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.logo::after {
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.logo:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.logo:hover::after {
+  transform: scaleY(1);
+  transform-origin: top;
 }
 
 .logo img {
   height: 40px;
+  transition: transform 0.5s ease;
+}
+
+.logo:hover img {
+  transform: rotate(360deg); /* Rotate 360 degrees on hover */
 }
 
 nav a {
@@ -100,13 +150,135 @@ nav a.active {
 
 .home-img {
   flex: 1;
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  overflow: hidden; /* Hide any overflow to create a cleaner effect */
+  position: relative; /* Position for adding pseudo-elements if needed */
+  width: 200px; /* Set a fixed width for the container */
+  height: 200px; /* Set a fixed height for the container */
+  border-radius: 100%;
 }
 
 .home-img img {
   width: 100%;
-  max-width: 450px;
-  border-radius: 20px;
+  max-width: 200px; /* Limit the image size */
+  border-radius: 100%; /* Make the image circular */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Add transition for smooth animation */
+}
+
+.home-img img:hover {
+  transform: scale(1.1); /* Scale the image on hover */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Intensify the box-shadow on hover */
+}
+
+/* Add a pseudo-element for a rotating border animation */
+.home-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 5px solid red; /* Initial border color */
+  border-radius: 100%; /* Match the circular shape */
+  box-sizing: border-box;
+  z-index: -1; /* Ensure it stays behind the image */
+  animation: rainbow 5s linear infinite, rotate-border 5s linear infinite; /* Apply the rainbow and rotate animations to the border */
+}
+
+/* Add border color animation */
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Add border rotation animation */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*2*/
+/* Add border color animation */
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Add border rotation animation */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to the container */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.home-img:hover {
+  animation: pulse 1.5s infinite; /* Add a pulsing animation on hover */
 }
 
 .home h1 {
@@ -176,8 +348,9 @@ nav a.active {
   border-radius: 15px;
   text-align: center;
   transition: var(--transition);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0.1); /* Initial border color */
   backdrop-filter: blur(10px);
+  position: relative; /* Add position relative for pseudo-element */
 }
 
 .service-card:hover {
@@ -185,10 +358,76 @@ nav a.active {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* Add a pseudo-element for the rotating border animation */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -5px; /* Adjust to match the border size */
+  left: -5px; /* Adjust to match the border size */
+  width: calc(100% + 10px); /* Adjust to match the border size */
+  height: calc(100% + 10px); /* Adjust to match the border size */
+  border: 5px solid red; /* Initial border color */
+  border-radius: 15px; /* Match the card's border-radius */
+  box-sizing: border-box;
+  z-index: -1; /* Ensure it stays behind the card */
+  animation: rainbow 3s linear infinite, rotate-border 5s linear infinite; /* Apply the rainbow and rotate animations */
+}
+
 .service-card i {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
+}
+
+/* Add border color animation */
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Add border rotation animation */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to the container */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Skills Section */
@@ -243,8 +482,9 @@ nav a.active {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid #95c11e; /* Initial border color */
   backdrop-filter: blur(10px);
+  animation: rainbow 3s linear infinite, pulse 1.5s infinite; /* Apply both animations */
 }
 
 .project-card img {
@@ -259,6 +499,47 @@ nav a.active {
 
 .project-links {
   margin-top: 1rem;
+}
+
+/* Add border color animation */
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Add animation to the container */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Contact Section */
@@ -603,4 +884,104 @@ footer {
 .education-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#skills {
+  width: 80%;
+  height: auto;
+  margin: 10%;
+  background-color: rgba(33, 30, 193, 0.1);
+  border: 5px solid #95c11e;
+  box-shadow: 0 0 10px rgba(149, 193, 30, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  animation: rainbow 3s linear infinite; /* Add the rainbow animation */
+}
+
+#skills h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  width: 20%;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  background: transparent;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.box p {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1;
+}
+.box img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+h3,
+h4 {
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0;
+}
+
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#skills:hover {
+  animation: pulse 1.5s infinite, rainbow 3s linear infinite; /* Combine the two animations */
 }
