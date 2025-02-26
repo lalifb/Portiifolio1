@@ -307,6 +307,9 @@ nav a.active {
   font-weight: 500;
   transition: var(--transition);
   margin-right: 1rem;
+  border: 2px solid transparent; /* Initial border color */
+  position: relative;
+  z-index: 1; /* Ensure it stays above the pseudo-element */
 }
 
 .btn.primary {
@@ -315,13 +318,111 @@ nav a.active {
 }
 
 .btn.secondary {
-  border: 2px solid var(--primary-color);
   color: var(--primary-color);
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: shadow-pulse 1s infinite;
+}
+
+/* Background Color Change */
+.btn.primary:hover {
+  background-color: #ff4081; /* Change to your desired color */
+}
+
+/* Wiggle Animation */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.btn.secondary:hover {
+  animation: wiggle 0.3s ease-in-out infinite;
+}
+
+/* Shadow Pulse Animation */
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn:active {
+  animation: rotate 0.5s ease-in-out;
+}
+
+/* Add the seven-color light animation */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 2px solid;
+  border-radius: 30px;
+  z-index: -1;
+  animation: rainbow 3s linear infinite, rotate-border 3s linear infinite; /* Apply the rainbow and rotate animations */
+}
+
+/* Add border color animation */
+@keyframes rainbow {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Add border rotation animation */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Services Section */
