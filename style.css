@@ -696,10 +696,34 @@ footer {
   font-size: 1.5rem;
   margin: 0 1rem;
   transition: var(--transition);
+  position: relative;
 }
 
 .social-icons a:hover {
   color: var(--primary-color);
+}
+
+/* Add glow effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color),
+      0 0 20px var(--primary-color), 0 0 40px var(--primary-color),
+      0 0 80px var(--primary-color);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color),
+      0 0 40px var(--primary-color), 0 0 80px var(--primary-color),
+      0 0 160px var(--primary-color);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color),
+      0 0 20px var(--primary-color), 0 0 40px var(--primary-color),
+      0 0 80px var(--primary-color);
+  }
+}
+
+.social-icons a:hover {
+  animation: glow 1.5s infinite alternate;
 }
 
 /* Education Section */
