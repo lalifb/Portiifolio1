@@ -294,7 +294,6 @@ nav a.active {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
-
 .cta-buttons {
   margin-top: 2rem;
 }
@@ -345,7 +344,6 @@ nav a.active {
 .btn.secondary:hover {
   animation: wiggle 0.3s ease-in-out infinite;
 }
-
 /* Shadow Pulse Animation */
 @keyframes shadow-pulse {
   0% {
